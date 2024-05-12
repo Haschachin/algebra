@@ -208,7 +208,7 @@ double trace_matrix(Matrix a)
     }
     for(i=0;i<a.rows;i++)
         {
-            for(j=0;j<a.rows-1;j++)
+            for(j=0;j<a.rows;j++)
             {
                     if (i==j)
                     {
