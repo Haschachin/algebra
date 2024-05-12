@@ -56,7 +56,7 @@ Matrix mul_matrix(Matrix a, Matrix b)
     Matrix c= create_matrix(a.rows,b.cols);
     for(i=0;i<a.rows;i++)
     {
-        for(j=0;j<b.rows;j++)
+        for(j=0;j<b.cols;j++)
         {
             for(k=0;k<a.cols;k++)
             {
@@ -147,8 +147,83 @@ double det_matrix(Matrix a)
 
 Matrix inv_matrix(Matrix a)
 {
-    // ToDo
-    return create_matrix(0, 0);
+    int i, j, k;
+	double max, temp;
+	Matrix b = create_matrix(a.cols,a.rows);                //临时矩阵
+	Matrix c = create_matrix(a.cols,a.rows);							  //将A矩阵存放在临时矩阵B中
+    if(a.cols != a.rows){
+        printf("Error: The matrix must be a square matrix.\n");
+        return create_matrix(0, 0);
+    }
+	for (i = 0; i < a.cols; i++)
+	{
+		for (j = 0; j < a.cols; j++)
+		{
+			b.data[i][j] = a.data[i][j];
+		}
+	}
+	//初始化C矩阵为单位阵
+	for (i = 0; i < a.cols; i++)
+	{
+		for (j = 0; j < a.cols; j++)
+		{
+			c.data[i][j] = (i == j) ? (double)1 : 0;
+		}
+	}
+	for (i = 0; i < a.cols; i++)
+	{
+		//寻找主元
+		max = b.data[i][i];
+		k = i;
+		for (j = i + 1; j < a.cols; j++)
+		{
+			if (fabs(b.data[j][i]) > fabs(max))
+			{
+				max = b.data[j][i];
+				k = j;
+			}
+		}
+		//如果主元所在行不是第i行，进行行交换
+		if (k != i)
+		{
+			for (j = 0; j < a.cols; j++)
+			{
+				temp = b.data[i][j];
+				b.data[i][j] = b.data[k][j];
+				b.data[k][j] = temp;
+				//B伴随交换
+				temp = c.data[i][j];
+				c.data[i][j] = c.data[k][j];
+				c.data[k][j] = temp;
+			}
+		}
+		//判断主元是否为0, 若是, 则矩阵A不是满秩矩阵,不存在逆矩阵
+		if (b.data[i][i] == 0)
+		{
+			printf("Error: The matrix is singular.\n");
+			return create_matrix(0, 0);;
+		}
+		//消去A的第i列除去i行以外的各行元素
+		temp = b.data[i][i];
+		for (j = 0; j < a.cols; j++)
+		{
+			b.data[i][j] = b.data[i][j] / temp;        //主对角线上的元素变为1
+			c.data[i][j] = c.data[i][j] / temp;        //伴随计算
+		}
+		for (j = 0; j < a.cols; j++)        //第0行->第n行
+		{
+			if (j != i)                //不是第i行
+			{
+				temp = b.data[j][i];
+				for (k = 0; k < a.cols; k++)        //第j行元素 - i行元素*j列i行元素
+				{
+					b.data[j][k] = b.data[j][k] - b.data[i][k] * temp;
+					c.data[j][k] = c.data[j][k] - c.data[i][k] * temp;
+				}
+			}
+		}
+	}
+    return c;
 }
 
 int rank_matrix(Matrix a)
@@ -210,8 +285,8 @@ double trace_matrix(Matrix a)
         {
             for(j=0;j<a.rows;j++)
             {
-                    if (i==j)
-                    {
+                if (i==j)
+                {
                        trace += a.data[i][j];
                 }
             }
