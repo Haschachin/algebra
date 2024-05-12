@@ -50,17 +50,17 @@ Matrix mul_matrix(Matrix a, Matrix b)
 {
     int i,j,k;
     if (a.cols!=b.rows){
-        printf("Error: Matrix a and b must have the same rows and cols.");
+        printf("Error: Matrix a and b must have the same rows and cols.\n");
         return create_matrix(0, 0);
     }
-    Matrix c= create_matrix(a.rows,b.cols);
+    Matrix c = create_matrix(a.rows,b.cols);
     for(i=0;i<a.rows;i++)
     {
         for(j=0;j<b.cols;j++)
         {
             for(k=0;k<a.cols;k++)
             {
-                c.data[i][j]+=a.data[i][k]*b.data[k][j];
+                c.data[i][j] += a.data[i][k]*b.data[k][j];
             }
         }
     }
