@@ -12,6 +12,10 @@ Matrix create_matrix(int row, int col)
 
 Matrix add_matrix(Matrix a, Matrix b)
 {
+    if(a.rows != b.rows || a.cols != b.cols){
+        printf("Error: Matrix a and b must have the same rows and cols.\n");
+        return create_matrix(0, 0);
+    }
     // ToDo
     return create_matrix(0, 0);
 }
@@ -66,9 +70,10 @@ double trace_matrix(Matrix a)
 
 void print_matrix(Matrix a)
 {
-    for (int i = 0; i < a.rows; i++)
+    int i,j;
+    for (i = 0; i < a.rows; i++)
     {
-        for (int j = 0; j < a.cols; j++)
+        for (j = 0; j < a.cols; j++)
         {
             // 按行打印，每个元素占8个字符的宽度，小数点后保留2位，左对齐
             printf("%-8.2f", a.data[i][j]);

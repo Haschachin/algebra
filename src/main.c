@@ -11,21 +11,21 @@ int main()
         {
             case '+':
             {
-                int rows, cols;
+                int rows, cols,i,j;
                 scanf("%d %d", &rows, &cols);
                 Matrix a = create_matrix(rows, cols);
-                for (int i = 0; i < rows; i++)
+                for (i = 0; i < rows; i++)
                 {
-                    for (int j = 0; j < cols; j++)
+                    for (j = 0; j < cols; j++)
                     {
                         scanf("%lf", &a.data[i][j]);
                     }
                 }
                 scanf("%d %d", &rows, &cols);
                 Matrix b = create_matrix(rows, cols);
-                for (int i = 0; i < rows; i++)
+                for (i = 0; i < rows; i++)
                 {
-                    for (int j = 0; j < cols; j++)
+                    for (j = 0; j < cols; j++)
                     {
                         scanf("%lf", &b.data[i][j]);
                     }
@@ -36,12 +36,12 @@ int main()
             }
             case '-':
             {
-                int rows, cols;
+                int rows, cols,i,j;
                 scanf("%d %d", &rows, &cols);
                 Matrix a = create_matrix(rows, cols);
-                for (int i = 0; i < rows; i++)
+                for (i = 0; i < rows; i++)
                 {
-                    for (int j = 0; j < cols; j++)
+                    for (j = 0; j < cols; j++)
                     {
                         scanf("%lf", &a.data[i][j]);
                     }
@@ -49,9 +49,9 @@ int main()
                 }
                 scanf("%d %d", &rows, &cols);
                 Matrix b = create_matrix(rows, cols);
-                for (int i = 0; i < rows; i++)
+                for (i = 0; i < rows; i++)
                 {
-                    for (int j = 0; j < cols; j++)
+                    for (j = 0; j < cols; j++)
                     {
                         scanf("%lf", &b.data[i][j]);
                     }
@@ -62,21 +62,21 @@ int main()
             }
             case '*':
             {
-                int rows, cols;
+                int rows, cols,i,j;
                 scanf("%d %d", &rows, &cols);
                 Matrix a = create_matrix(rows, cols);
-                for (int i = 0; i < rows; i++)
+                for (i = 0; i < rows; i++)
                 {
-                    for (int j = 0; j < cols; j++)
+                    for (j = 0; j < cols; j++)
                     {
                         scanf("%lf", &a.data[i][j]);
                     }
                 }
                 scanf("%d %d\n", &rows, &cols);
                 Matrix b = create_matrix(rows, cols);
-                for (int i = 0; i < rows; i++)
+                for (i = 0; i < rows; i++)
                 {
-                    for (int j = 0; j < cols; j++)
+                    for (j = 0; j < cols; j++)
                     {
                         scanf("%lf", &b.data[i][j]);
                     }
@@ -87,12 +87,12 @@ int main()
             }
             case '.':
             {
-                int rows, cols;
+                int rows, cols,i,j;
                 scanf("%d %d", &rows, &cols);
                 Matrix a = create_matrix(rows, cols);
-                for (int i = 0; i < rows; i++)
+                for (i = 0; i < rows; i++)
                 {
-                    for (int j = 0; j < cols; j++)
+                    for (j = 0; j < cols; j++)
                     {
                         scanf("%lf", &a.data[i][j]);
                     }
@@ -103,12 +103,12 @@ int main()
             }
             case 't':
             {
-                int rows, cols;
+                int rows, cols,i,j;
                 scanf("%d %d", &rows, &cols);
                 Matrix a = create_matrix(rows, cols);
-                for (int i = 0; i < rows; i++)
+                for (i = 0; i < rows; i++)
                 {
-                    for (int j = 0; j < cols; j++)
+                    for (j = 0; j < cols; j++)
                     {
                         scanf("%lf", &a.data[i][j]);
                     }
@@ -119,12 +119,12 @@ int main()
             }
             case 'd':
             {
-                int rows, cols;
+                int rows, cols,i,j;
                 scanf("%d %d", &rows, &cols);
                 Matrix a = create_matrix(rows, cols);
-                for (int i = 0; i < rows; i++)
+                for (i = 0; i < rows; i++)
                 {
-                    for (int j = 0; j < cols; j++)
+                    for (j = 0; j < cols; j++)
                     {
                         scanf("%lf", &a.data[i][j]);
                     }
@@ -135,12 +135,12 @@ int main()
             }
             case 'i':
             {
-                int rows, cols;
+                int rows, cols,i,j;
                 scanf("%d %d", &rows, &cols);
                 Matrix a = create_matrix(rows, cols);
-                for (int i = 0; i < rows; i++)
+                for (i = 0; i < rows; i++)
                 {
-                    for (int j = 0; j < cols; j++)
+                    for (j = 0; j < cols; j++)
                     {
                         scanf("%lf", &a.data[i][j]);
                     }
@@ -151,12 +151,12 @@ int main()
             }
             case 'r':
             {
-                int rows, cols;
+                int rows, cols,i,j;
                 scanf("%d %d", &rows, &cols);
                 Matrix a = create_matrix(rows, cols);
-                for (int i = 0; i < rows; i++)
+                for (i = 0; i < rows; i++)
                 {
-                    for (int j = 0; j < cols; j++)
+                    for (j = 0; j < cols; j++)
                     {
                         scanf("%lf", &a.data[i][j]);
                     }
@@ -167,12 +167,12 @@ int main()
             }
             case 'j':
             {
-                int rows, cols;
+                int rows, cols,i,j;
                 scanf("%d %d", &rows, &cols);
                 Matrix a = create_matrix(rows, cols);
-                for (int i = 0; i < rows; i++)
+                for (i = 0; i < rows; i++)
                 {
-                    for (int j = 0; j < cols; j++)
+                    for (j = 0; j < cols; j++)
                     {
                         scanf("%lf", &a.data[i][j]);
                     }
