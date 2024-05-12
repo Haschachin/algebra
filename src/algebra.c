@@ -94,7 +94,6 @@ Matrix transpose_matrix(Matrix a)
 
 double det_matrix(Matrix a)
 {
-        // ToDo
     double sum=0;
     if (a.rows==a.cols&&a.rows>2)
     {
@@ -137,7 +136,7 @@ double det_matrix(Matrix a)
     }
     else
     {
-        printf("Error: Matrix a and b must have the same rows and cols.");
+        printf("Error: The matrix must be a square matrix.\n");
     }
     return sum;
 }
@@ -156,8 +155,22 @@ int rank_matrix(Matrix a)
 
 double trace_matrix(Matrix a)
 {
-    // ToDo
-    return 0;
+    double trace;
+    if(a.cols != a.rows){
+        printf("Error: The matrix must be a square matrix.\n");
+        return 0;
+    }
+    for(int i=0;i<a.rows;i++)
+        {
+            for(int j=0;j<a.rows-1;j++)
+            {
+                    if (i==j)
+                    {
+                       trace += a.data[i][j];
+                }
+            }
+        }
+        return trace;
 }
 
 void print_matrix(Matrix a)
