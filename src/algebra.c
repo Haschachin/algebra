@@ -51,15 +51,30 @@ Matrix mul_matrix(Matrix a, Matrix b)
 }
 
 Matrix scale_matrix(Matrix a, double k)
-{
-    // ToDo
-    return create_matrix(0, 0);
+{   
+    Matrix b= create_matrix(a.rows,a.cols);
+    for(int i=0;i<a.rows;i++)
+    {
+        for(int j=0;j<a.cols;j++)
+        {
+            b.data[i][j]=a.data[i][j]*k;
+        }
+    }
+    
+    return b;
 }
 
 Matrix transpose_matrix(Matrix a)
 {
-    // ToDo
-    return create_matrix(0, 0);
+    Matrix c= create_matrix(a.cols,a.rows);
+   for (int i = 0; i < a.rows; i++)//循环写入newMat
+	{
+		for (int j = 0; j < a.cols; j++)
+		{
+			c.data[j][i] = a.data[i][j];//置换
+		}
+	}
+    return c;
 }
 
 double det_matrix(Matrix a)
